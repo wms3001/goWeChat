@@ -13,8 +13,8 @@ go get github.com/wms3001/goWeChat
 2. 获取access_token
 ```go
 goWeChat.Url = "https://qyapi.weixin.qq.com"
-goWeChat.Corpid = "wwcfcac37088fc0f2433"
-goWeChat.Corpsecret = "Wo33GJC6t4nuVjgRsCxyM0ArhiKaJ8UPk6v_SZYavh0Tc"
+goWeChat.Corpid = ""
+goWeChat.Corpsecret = ""
 token := goWeChat.GetAccessToken()
 log.Println(token.AccessToken)
 ```
