@@ -37,6 +37,15 @@ func (goWeChat *GoWeChat) SendTextMessage(message model.TextMessage) model.TextM
 	return textResponse
 }
 
+func (goWeChat *GoWeChat) SendMarkDownMessage(message model.MarkdownMessage) model.TextMessageResponse {
+	url := goWeChat.Url + "/cgi-bin/message/send?access_token=" + goWeChat.Access_token
+	req, _ := json.Marshal(message)
+	res := goWeChat.PostJson(url, string(req))
+	textResponse := model.TextMessageResponse{}
+	json.Unmarshal([]byte(res), &textResponse)
+	return textResponse
+}
+
 func (goWeChat *GoWeChat) Get(url string) string {
 	client := resty.New()
 	resp, err := client.R().Get(url)
